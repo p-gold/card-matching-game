@@ -1,0 +1,109 @@
+html {
+    box-sizing: border-box;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    box-sizing: inherit;
+  }
+  
+  body {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    line-height: 1.6;
+    padding: 0;
+    margin: 0;
+    font-size: 18px;
+    background: radial-gradient(closest-side, #69ca19, #77be05) no-repeat center;
+  }
+
+  .head>h1{
+      color: whitesmoke;
+      margin: 0;
+      text-align: center;
+      box-shadow: 6px 5px 15px rgba(102, 101, 101, 0.582); 
+      padding-bottom: 0px;                                                                                                     
+  }
+
+  .counterHolder{
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+  }
+
+
+  #counterLogo{
+    margin-right: 10px;
+    font-size: 30px;
+  }
+
+  #counter{
+    font-family: orbitron,sans-serif;
+    font-size: 30px;
+  }
+
+  .moves{
+   margin-left: 150px;
+  }
+
+  .stars{
+    display: flex;
+    justify-content: center;
+  }
+
+  .resetButton{
+    margin-left: 250px;
+    padding: 4px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 50px;
+    background-color: white;
+    box-shadow: 3px 2px 4px rgba(102, 101, 101, 0.582);
+    transform: rotate(-90deg);
+    font-weight: bold;
+  }
+
+  .stars span{
+    color: white;
+    font-weight: bold;
+  }
+
+
+  /* laying out the cards with flexbox */
+
+  .cardsContainer{
+    display: flex;
+    flex-wrap: wrap;
+    box-shadow: 0 7px 5px rgba(0, 0, 0, 0.26), -6px 4px 5px rgba(0, 0, 0, 0.26), 6px -7px 5px rgba(0, 0, 0, 0.26);
+    width: 60%;
+    margin: 0 auto;
+    border-radius: 5%;
+    justify-content: center;
+    height: 100%;
+    padding: 50px;
+    
+  }
+
+  #modal{
+    display: none;
+  }
+
+
+
+  .cardsImage, .coverImage{
+    width: 150px;
+    height: 120px;
+    margin: 7px;
+    border-radius: 15%;
+    box-shadow: -2px 2px 12px -6px rgba(0,0,0,0.53);
+  }
+
+  .cards, .coverImage{
+    position: relative;
+    
+  }
+
+  .cardsImage{
+    position: absolute;
+   
+  }
