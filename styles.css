@@ -51,20 +51,28 @@ html {
     justify-content: center;
   }
 
-  .resetButton{
+  .resetButton, .cards{
+    cursor: pointer;
+  }
+
+  .rst{
+    box-shadow: none;
+  }
+
+  .resetButton{   /* border: 2px solid firebrick; */
     margin-left: 250px;
     padding: 4px;
     padding-top: 5px;
     padding-bottom: 5px;
     border-radius: 50px;
-    background-color: white;
+    background-color:#ca1969;
     box-shadow: 3px 2px 4px rgba(102, 101, 101, 0.582);
     transform: rotate(-90deg);
     font-weight: bold;
   }
 
   .stars span{
-    color: white;
+    /* color: white; */
     font-weight: bold;
   }
 
@@ -77,26 +85,66 @@ html {
     box-shadow: 0 7px 5px rgba(0, 0, 0, 0.26), -6px 4px 5px rgba(0, 0, 0, 0.26), 6px -7px 5px rgba(0, 0, 0, 0.26);
     width: 60%;
     margin: 0 auto;
-    border-radius: 5%;
+    border-radius: 2%;
     justify-content: center;
     height: 100%;
     padding: 50px;
     
   }
 
-  #modal{
+  .match{
+    /* pointer-events: none; */
+    border: #69ca19;
+    -webkit-animation: matches 0.30s 2.15;
+    animation: matches 0.50s 1.15;
+
+  }
+
+  .life{
+    color: #ca1969;
+  }
+
+  .didNotMatch{
+    -webkit-animation: doesNotMatch 0.25s 2.15;
+    animation: doesNotMatch 0.20s 2.25 forwards;
+  }
+
+  
+
+  .coverImage{
+    background-color: #e3e7e0;  
+  }
+
+  .cardsImage{
+    transform: rotateY(180deg);
+    background-color: red;
+  }
+
+
+  #modal{ 
     display: none;
+  }
+
+  .flip{
+    transform: rotateY(180deg);
   }
 
 
 
   .cardsImage, .coverImage{
+    position: absolute;
     width: 150px;
+    backface-visibility: hidden;
     height: 120px;
-    margin: 7px;
-    border-radius: 15%;
-    box-shadow: -2px 2px 12px -6px rgba(0,0,0,0.53);
- 
+    margin:   5px;
+    margin-bottom: 0;
+    border-radius: 5%;
+  }
+
+  .cards{
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+    /* box-shadow: 0px 0px 10px 0px rgb(79, 153, 74); */
   }
 
   .cards, .coverImage{
@@ -104,7 +152,52 @@ html {
     
   }
 
-  .cardsImage{
-    position: absolute;
-   
+  /* Classes used in javascript below */
+
+  /* match animation */
+  @keyframes matches{
+    0%{
+      -webkit-transform: skew(10deg, 15deg);
+      transform: skew(10deg, 15deg);
+      -webkit-transform: translateX(-0.1in);
+      transform: translateX(-0.1in);
+    }
+    50%{
+      -webkit-transform: skew(-10deg, -10deg);
+      transform: skew(-10deg, -10deg);
+      -webkit-transform: translateX(0.1in);
+      transform: translateX(0.1in);
+    }
+    100%{
+      -webkit-transform: skew(0, 0);
+    transform: skew(0, 0);
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    }
   }
+
+  /* flipCard animations */
+  @keyframes doesNotMatch{
+    from{
+        transform: translateY(-0.5in);
+        -webkit-transform: translateY(-0.05in);
+    }
+    to{
+      transform: translateY(0.5in);
+      -webkit-transform: translateY(0.05in);
+    }
+  }
+
+  @-webkit-keyframes doesNotMatch{
+    0%{
+        transform: translateY(-0.5in);
+        -webkit-transform: translateY(-0.5in);
+    }
+    100%{
+      transform: translateY(0.5in);
+      -webkit-transform: translateY(0.5in);
+    }
+  } 
+
+  
+  /* flip Card animations ends here
