@@ -3,7 +3,7 @@ let cards = [...document.getElementsByClassName('cards')];
 //let coverImage = document.getElementsByClassName('.coverImage');
 let resetBtn = document.getElementsByClassName('resetButton');
 let moveCounter = document.querySelector('.moves');
-let stars = document.querySelectorAll('star')
+let stars = document.querySelectorAll('span.star')
 let isFlipped = false;
 let counter = 0;
 let locked = false;
@@ -113,7 +113,7 @@ function deleteStar() {
 }
 
 
-// check if the two flipped cards matches
+// check if the two flipped cards match
 
 
 cards.forEach(card => card.addEventListener('click', flipCard), {  
@@ -197,6 +197,7 @@ const reset = ()=>{
   for(card of cards ){
     cardContainer[0].appendChild(card);
     card.classList.remove('flip', 'match', 'didNotMatch');
+    card.addEventListener('click', flipCard)
   }
 
   // clear the timer
