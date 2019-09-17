@@ -5,7 +5,7 @@ let resetBtn = document.getElementsByClassName('resetButton');
 let moveCounter = document.querySelector('.moves');
 let stars = document.querySelectorAll('span.star')
 let isFlipped = false;
-let counter = 0;
+let counter = 0;//keeps track of moves made
 let locked = false;
 let firstCard ;//holds the first flipped card.
 let secondCard;//holds the second flipped card.
@@ -64,28 +64,28 @@ function didItMatch(){
    deleteStar()
 }
 
-let resetGame = ()=>{
-  let shuffledCards = shuffleCard(cards);
+// let resetGame = ()=>{
+//   let shuffledCards = shuffleCard(cards);
 
-  //updateing the page with the shuffled cards
-  cardContainer.innerHTML = '';
-  for(card of cards){
-    cardContainer.appendChild(card);
-    card.classList.remove('flip', 'match', 'not-match');
-  }
+//   //updateing the page with the shuffled cards
+//   cardContainer.innerHTML = '';
+//   for(card of cards){
+//     cardContainer.appendChild(card);
+//     card.classList.remove('flip', 'match', 'not-match');
+//   }
 
-  //clear timer
-  clearTimeout(updateTime);
-  [allMatchCards, seconds, minutes, hours] = [0,0,0,0];
-  // refill the stars
-  for (star of stars){
-    if(stars.classList !== 'checked'){
-      star.classList.add('checked');
-    }
-  }
-  // reset counter
-  [moveCounter.textContent, counter] = [0, 0];
-}
+//   //clear timer
+//   clearTimeout(updateTime);
+//   [allMatchCards, seconds, minutes, hours] = [0,0,0,0];
+//   // refill the stars
+//   for (star of stars){
+//     if(stars.classList !== 'checked'){
+//       star.classList.add('checked');
+//     }
+//   }
+//   // reset counter
+//   [moveCounter.textContent, counter] = [0, 0];
+// }
 
 
 /** 
@@ -253,9 +253,31 @@ function moves(){
 }
 
 
-// function to display modal in order to congratulate the player.
+// modal section
+let modal = document.getElementById('modal');
 let replay  = document.getElementById('replay');
 let repo = document.getElementById('repo');
 let timeSummary = document.getElementById('timeSummary');
 let counterSummary = document.getElementById('counterSummary');
 let starsSummary  = document.getElementById('starsSummary');
+let close = document.getElementById('close');
+
+// function to display modal in order to congratulate the player.
+function displayModal(){
+  clearTimeout(updateTime);
+  timeSummary.textContent = timer.textContent;
+  starsSummary.innerHTML = stars.innerHTML;
+  counterSummary.innerHTML = counter + 1 + 'Moves';
+  modal.classList.remove('hide');
+}
+
+
+// a function to close the modal
+function closeModal(){
+  modal.classList.add('hide');//sets the modal to display none.
+  //autoreset the game
+  reset();
+}
+
+close.addEventListener('click', closeModal,  false);
+replay.addEventListener('click', closeModal, false);
