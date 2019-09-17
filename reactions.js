@@ -132,7 +132,7 @@ function match(){
   allMatchCards += 2;
   if(allMatchCards === 16){
     clearTimeout(updateTime);
-    // displayModal();
+     displayModal();
   }
   resetVariables();
 }
@@ -251,3 +251,11 @@ function timer (){
 function moves(){
   counter++;  
 }
+
+
+// function to display modal in order to congratulate the player.
+let replay  = document.getElementById('replay');
+let repo = document.getElementById('repo');
+let timeSummary = document.getElementById('timeSummary');
+let counterSummary = document.getElementById('counterSummary');
+let starsSummary  = document.getElementById('starsSummary');
