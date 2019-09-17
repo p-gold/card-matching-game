@@ -86,6 +86,7 @@ html {
     width: 60%;
     margin: 0 auto;
     border-radius: 2%;
+    perspective: 1000px;
     justify-content: center;
     height: 100%;
     padding: 50px;

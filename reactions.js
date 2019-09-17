@@ -143,17 +143,12 @@ function match(){
 */ 
 
 function notMatch(){
-  firstCard.classList.add('didNotMatch');
-  secondCard.classList.add('didNotMatch');
-
-  setTimeout(() =>{
-    // close the card back 
+  setTimeout( () =>{
     firstCard.classList.remove('flip', 'didNotMatch');
     secondCard.classList.remove('flip', 'didNotMatch');
-
-    // reset the cards variables
     resetVariables();
-  }, 550);
+  },500) 
+
 }
 
 
