@@ -1,21 +1,22 @@
 /*getting the DOM elements*/
 let cards = [...document.getElementsByClassName('cards')];
-//let coverImage = document.getElementsByClassName('.coverImage');
 let resetBtn = document.getElementsByClassName('resetButton');
 let moveCounter = document.querySelector('.moves');
-let stars = document.querySelectorAll('span.star')
+let stars = [...document.querySelectorAll('span.star')]
 let isFlipped = false;
 let counter = 0;//keeps track of moves made
 let locked = false;
 let firstCard ;//holds the first flipped card.
 let secondCard;//holds the second flipped card.
 let allMatchCards;//holds the matched cards.
-const time = document.getElementById('timer');
+let time = document.getElementById('timer');
 let updateTime; //holds the time function
 let seconds = 0;
 let hours = 0;
 let minutes = 0;
+let starsContainer = document.getElementById('starsContainer');
 
+//starsContainer.innerHTML = stars;
 
 // flipping the card open.
 function flipCard() {
@@ -25,10 +26,6 @@ function flipCard() {
     if(time.textContent === '00:00:00'){
       timer();
     }
-
-    // console.log(this);
-    // console.log(locked);
-    // console.log(match)
    
     // finally, flip the card
     this.classList.add('flip')
@@ -50,42 +47,16 @@ function flipCard() {
 function didItMatch(){
   let checkMatch = (firstCard.dataset.card === secondCard.dataset.card);
   checkMatch ? match() : notMatch();
-  //console.log(firstCard.dataset.value);
-  //console.log(secondCard.dataset.value);
-  console.log(firstCard);
   counter++;
-  moveCounter.textContent = `${counter} moves`;
+  moveCounter.textContent = `${counter} Moves`;
 
   if(counter === 1){
-    return moveCounter.textContent = `${counter} move`;
+    return moveCounter.textContent = `${counter} Move`;
   }
 
   //remove star-life after 5 moves
    deleteStar()
 }
-
-// let resetGame = ()=>{
-//   let shuffledCards = shuffleCard(cards);
-
-//   //updateing the page with the shuffled cards
-//   cardContainer.innerHTML = '';
-//   for(card of cards){
-//     cardContainer.appendChild(card);
-//     card.classList.remove('flip', 'match', 'not-match');
-//   }
-
-//   //clear timer
-//   clearTimeout(updateTime);
-//   [allMatchCards, seconds, minutes, hours] = [0,0,0,0];
-//   // refill the stars
-//   for (star of stars){
-//     if(stars.classList !== 'checked'){
-//       star.classList.add('checked');
-//     }
-//   }
-//   // reset counter
-//   [moveCounter.textContent, counter] = [0, 0];
-// }
 
 
 /** 
@@ -112,8 +83,6 @@ function deleteStar() {
     }
 }
 
-
-// check if the two flipped cards match
 
 
 cards.forEach(card => card.addEventListener('click', flipCard), {  
@@ -159,17 +128,12 @@ function resetVariables(){
 }
 
 
-// shuffing the cards
-// getting the DOM elements
-
 let cardContainer = document.getElementsByClassName('cardsContainer');
 
 // shuffle function
-
 let shuffleCard = (shuffled) => {
   let tempVal;
   let shuffleIndex;
-
   for (let presentIndex = shuffled.length; presentIndex != 0; presentIndex) {
     shuffleIndex = Math.floor(Math.random() * presentIndex);
     presentIndex--
@@ -180,13 +144,11 @@ let shuffleCard = (shuffled) => {
 
   return shuffled;
 }
-
+let icon  = document.getElementsByClassName('fas');
 // reseting the game
 const reset = ()=>{
   // shuffle the cards array
   cards = shuffleCard(cards);
-  
-
   // update the page with the shuffled cards
   cardContainer.innerHTML = "";
   for(card of cards ){
@@ -211,17 +173,11 @@ const reset = ()=>{
   }
 
   // reset game counter
-  [moveCounter.textContent, counter] = [0, 0];
+  [moveCounter.textContent, counter] = ['Moves', 0];
 }
 
 resetBtn[0].addEventListener('click', reset, false);
-document.addEventListener('DOMContentLoaded', reset, false);
-
-
-
-/* 
-the timer function that keeps records of th e game time.
-*/  
+document.addEventListener('DOMContentLoaded', reset, false);//reset the game when the browser loads
 
 function setTime() {
 seconds ++;
@@ -247,7 +203,6 @@ function timer (){
 
 
 // functions to count the clicks/moves
-
 function moves(){
   counter++;  
 }
@@ -265,9 +220,9 @@ let close = document.getElementById('close');
 // function to display modal in order to congratulate the player.
 function displayModal(){
   clearTimeout(updateTime);
-  timeSummary.textContent = timer.textContent;
-  starsSummary.innerHTML = stars.innerHTML;
-  counterSummary.innerHTML = counter + 1 + 'Moves';
+  timeSummary.textContent = time.textContent;
+  starsSummary.innerHTML = starsContainer.innerHTML;
+  counterSummary.innerHTML = counter + 1 + ' ' + 'Moves';
   modal.classList.remove('hide');
 }
 

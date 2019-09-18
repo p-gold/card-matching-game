@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>memory card game</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
+        crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet"> 
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -13,20 +15,20 @@
         <header class="head">
             <h1>Memory card game</h1>
             <div class="counterHolder">
-                <span id="counter
-                Logo">🕓</span>
-                <span id="timer">00:00:00</span>
-                <div class="moves">0ve</div>
+                <span id="counterLogo">🕓</span>
+                <span id="timer" title="timer">00:00:00</span>
+                <div class="moves" title="moves">Moves</div>
             </div>
-            <div class="stars">
-                <span class="star">★</span>
-                <span class="star">★</span>
-                <span class="star">★</span>
-                <span class="star">★</span>
-                <span class="star">★</span>
-                <div class="resetButton">⭯</div>
+            <div class="star-resetBtn" title="star ratings">
+                <div class="starsContainer" id="starsContainer">
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                </div>
+                <div class="resetButton" title="reset"><i class="fas fa-sync-alt resetButton"></i></div>
             </div>
-            
         </header>
         <section class="cardsContainer">
             <div class="cards" data-card="drogber">
@@ -102,17 +104,20 @@
             </header>
             <div>
                 <p class="modal-para">
-                    Finally you turned all the card successfully, thumbs up for you because its not easy matching the cards. would you like to play the game once more? if yes, hit the replay button or the repo button to see my codes.
+                    Finally you turned all the card successfully, thumbs up for you because its not easy matching the cards. Your scores are as below
                 </p>
             </div>
             <div class="summary">
-                <div id="timeSummary">timeSummary here</div>
-                <div id="counterSummary">moves summary here</div>
-                <div id="starsSummary">stars summary here</div>
+                <div id="timeSummary"></div>
+                <div id="counterSummary"></div>
+                <div id="starsSummary"></div>
             </div>
+            <p class="modal-para">
+                Would you like to play again? if yes please hit the <mark>Replay</mark> button or if you would like to see my project repository, click the <mark>Repo</mark>button. Thank you!! 
+            </p>
             <div id="buttons">
-                <button class="replay"  id="replay">Replay</button>
- <a href="https://github.com/p-gold/card-matching-game" target="blanc"><button class="repo" id="repo">Repo</button></a>
+                <button class="replay"  id="replay" title="replay">Replay</button>
+ <a href="https://github.com/p-gold/card-matching-game" target="blanc"><button class="repo" id="repo" title="Repo">Repo</button></a>
                 
             </div>
         </section>
