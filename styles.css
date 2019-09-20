@@ -210,7 +210,6 @@ html {
     }
 
   .modal{ 
-    /* display: block; */
     animation: animateModal 1.4s ease-in;
     text-align: center;
     position: absolute;
@@ -320,12 +319,13 @@ html {
     width: 100px;
     margin: 0;
     height: 100px;
-  } 
+  }
   .modal{
     width: 100%;
     height: auto;
+} 
   }
-}
+
 
 
 @media screen and (max-width: 360px) { /*done here*/
@@ -364,3 +364,18 @@ html{
   
   }
 }
+
+
+
+
+ @media screen and (max-width: 375px) {
+  .starsContainer{
+    margin-left: -50%;
+  }
+}
+
+ @media screen  and (max-width: 437px) and (min-width:387px) {
+  body{
+    width:  420px;
+  }
+}  
